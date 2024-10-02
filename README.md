@@ -1,4 +1,5 @@
 # Django_Multilanguage-manual
+![Getting Started](./static/admin/img/image1.jpg) 
 # Hello dear, how can I translate the django admin panel?
 
 ### First of all, I create a 
@@ -15,7 +16,7 @@ python manage.py startapp mysite
 
 ```
 ### So Than I creat virtual environment
-```
+```bash
 1. python3 -m venv venv
 than venv activate
 2. source venv/bin/activate
@@ -71,6 +72,15 @@ LANGUAGES = (
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
+```
+
+### add url
+from django.views.i18n import set_language
+```
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('i18n/', set_language, name='set_language'),
+]
 ```
 ### Change Middleware Enter:
 ```
@@ -137,3 +147,54 @@ MIDDLEWARE = [
 
 {% endblock %}
 ```
+
+### Then we can create models in model.py inside the created app. from django.utils.translation import gettext_lazy as _
+```
+class ConcertCategory(models.Model):
+    name = models.CharField(max_length=64, verbose_name=_('name'))
+    description = models.TextField(max_length=256, blank=True, null=True, verbose_name=_("description"))
+
+    VERBOSE_NAME = _('ConcertCategory')
+    class Meta:
+        verbose_name = _("concert category")
+        verbose_name_plural = _("concert categories")
+        ordering = ["-name"]
+
+    def __str__(self):
+        return f"{self.name}"
+```
+
+### Issue commands terminal:
+```bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser   # Create a user admin to enter the product from the section
+```
+
+### Created locale folder
+```bash
+mkdir your_app_name/lacale
+```
+### issue this command through terminal
+```bash
+django-admin makemessages --l en #or
+django-admin makemessages --all
+```
+### processing locale ru processing locale uz #you should get an answer like this!
+#### go to the uz folder from the locale file and open the file inside look for this code:
+```bash
+#: mysite/models.py:21
+msgid "starts_at"
+msgstr "boshlanish sanasi" #add
+
+#: mysite/models.py:22
+msgid "price"
+msgstr "narx" #add
+```
+
+### Issue this command through terminal: to confirm
+```bash
+django-admin compilemessages
+```
+
+![Getting Started](./static/admin/img/image.png) 

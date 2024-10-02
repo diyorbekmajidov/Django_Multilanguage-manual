@@ -116,7 +116,7 @@ USE_I18N = True
 USE_TZ = True
 
 LANGUAGES = [
-    ('uz', 'UZBEK'),
+    ('uz', 'Uzbek'),
     ('en', 'English'), 
     ('ru', 'Russian')
 ]

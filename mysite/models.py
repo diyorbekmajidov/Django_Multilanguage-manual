@@ -7,8 +7,8 @@ class ConcertCategory(models.Model):
 
     VERBOSE_NAME = _('ConcertCategory')
     class Meta:
-        verbose_name = "concert category"
-        verbose_name_plural = "concert categories"
+        verbose_name = _("concert category")
+        verbose_name_plural = _("concert categories")
         ordering = ["-name"]
 
     def __str__(self):
@@ -25,8 +25,8 @@ class Concert(models.Model):
     VERBOSE_NAME = 'Concert'
 
     class Meta:
-        verbose_name = "Concert"
-        verbose_name_plural = "Concerts"
+        verbose_name = _("Concert")
+        verbose_name_plural = _("Concerts")
         ordering = ["starts_at"]
 
     def is_sold_out(self):
@@ -53,8 +53,8 @@ class Ticket(models.Model):
     VERBOSE_NAME = 'Ticket'
 
     class Meta:
-        verbose_name = "Ticket"
-        verbose_name_plural = "Tickets"
+        verbose_name = _("Ticket")
+        verbose_name_plural = _("Tickets")
 
     def __str__(self):
         return f"{self.customer_full_name} ({self.concert})"
