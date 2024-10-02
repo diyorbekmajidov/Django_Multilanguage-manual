@@ -198,3 +198,9 @@ django-admin compilemessages
 ```
 
 ![Getting Started](./static/admin/img/image.png) 
+
+
+# [video guide](https://www.youtube.com/watch?v=gVs4GPyXbJk&t=641s)
+# [questions and suggestions telegram](https://t.me/majidov_diyorbek)
+
+
