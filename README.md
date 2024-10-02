@@ -202,5 +202,5 @@ django-admin compilemessages
 
 # [video guide](https://www.youtube.com/watch?v=gVs4GPyXbJk&t=641s)
 # [questions and suggestions telegram](https://t.me/majidov_diyorbek)
-
+# [docs](http://www.i18nguy.com/unicode/language-identifiers.html)
 
